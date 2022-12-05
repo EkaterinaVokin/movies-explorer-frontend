@@ -3,21 +3,6 @@
   margin-bottom: 110px;
 }
 
-.project__header {
-  font-size: 22px;
-  letter-spacing: -0.04em;
-  line-height: 1.22;
-  margin: 0;
-  margin-bottom: 23px;
-  font-weight: 400;
-}
-
-.project__border {
-  margin: 0;
-  border: 0;
-  border-bottom: 1px solid #000;
-}
-
 .project__content {
   display: flex;
   padding-top: 70px;
@@ -87,13 +72,6 @@
   margin: 0;
 }
 
-@media (max-width: 1023px) {
-  .project {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-}
-
 @media (max-width: 992px) {
   .project {
     margin-top: 90px;
@@ -117,12 +95,8 @@
   .project {
     margin-top: 70px;
     margin-bottom: 70px;
-    padding-right: 4px;
-    padding-left: 4px;
-  }
-  .project__header {
-    margin-bottom: 28px;
-    font-size: 18px;
+    /* padding-right: 4px;
+    padding-left: 4px; */
   }
   .project__content {
     padding-top: 60px;
