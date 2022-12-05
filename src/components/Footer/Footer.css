@@ -13,12 +13,6 @@
   margin-bottom: 20px;
 }
 
-.footer__border {
-  margin: 0 ;
-  border: 0;
-  border-bottom: 1px solid #E8E8E8;
-}
-
 .footer__content {
   display: flex;
   margin-top: 20px;
@@ -50,18 +44,7 @@
   opacity: 0.7;
 }
 
-@media (max-width: 1023px) {
-  .footer {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-}
-
 @media (max-width: 576px) {
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
   .footer__content {
     flex-direction: column;
     margin-top: 30px;
