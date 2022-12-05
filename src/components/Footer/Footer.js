@@ -1,11 +1,13 @@
+import { Line } from '../Line/Line.js';
+import { Container } from '../Container/Container.js';
 import './Footer.css';
 
 export function Footer() {
   return (
-    <div className="container">
-      <footer className="footer">
+    <footer className="footer">
+      <Container>
         <p className="footer__text">Учебный проект Яндекс.Практикум х BeatFilm.</p>
-        <hr className="footer__border"></hr>
+        <Line light={true}/>
         <div className="footer__content">
           <p className="footer__content-copyright">&copy; {new Date().getFullYear()}</p>
           <a className="footer__content-link" href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer">
@@ -15,7 +17,7 @@ export function Footer() {
             Github
           </a>
         </div>
-      </footer>
-    </div>
+      </Container>
+    </footer>
   );
 }
