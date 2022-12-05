@@ -5,24 +5,6 @@
 body {
   font-family: "Inter" , Arial, Helvetica, sans-serif;
   margin: 0 auto;
-  max-width: 1280px;
   background-color: #fff;
-}
-
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-@media (max-width: 992px) {
-  .container {
-    max-width: 708px;
-  }
-}
-
-@media (max-width: 576px) {
-  .container {
-    max-width: 292px;
-  }
 }
 
