@@ -33,7 +33,6 @@
   border: none;
   padding: 15px;
   width: 100%;
-  margin-bottom: 10px;
 }
 
 .form__input:focus {
@@ -47,6 +46,10 @@
 .form__error {
   display: block;
   height: 12px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #FF4062;
+  margin-top: 10px;
 }
 
 .form__button {
