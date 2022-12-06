@@ -1,0 +1,33 @@
+.header {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  height: 74px;
+}
+
+.header_color_white {
+  background-color: #fff;
+}
+
+.header_color_punk {
+  background-color: #F3C1F8;
+}
+
+.header__link {
+  cursor: pointer;
+}
+
+.header__logo {
+  display: block;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .header__navigation {
+    display: none;
+  }
+}
