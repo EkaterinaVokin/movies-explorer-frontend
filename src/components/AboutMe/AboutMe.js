@@ -7,7 +7,7 @@ import './AboutMe.css';
 export function AboutMe() {
   return(
     <section className="about">
-      <Container main={true}>
+      <Container type="main">
         <SectionTitle title="Студент" />
         <Line />
         <div className="about__content">

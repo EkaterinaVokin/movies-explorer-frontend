@@ -6,7 +6,7 @@ import './SearchForm.css';
 export function SearchForm() {
   return(
     <section className="search">
-      <Container main={true}>
+      <Container type="main">
         <form className="search__form" name="form-search">
           <div className="search__row">
             <input 

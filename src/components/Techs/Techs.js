@@ -6,7 +6,7 @@ import './Techs.css';
 export function Techs() {
   return (
     <section className="techs">
-      <Container main={true}>
+      <Container type="main">
         <SectionTitle title="Технологии"/>
         <Line/>
         <div className="techs__section">

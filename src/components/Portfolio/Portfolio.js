@@ -6,7 +6,7 @@ import './Portfolio.css';
 export function Portfolio() {
   return(
     <section className="portfolio">
-      <Container main={true}>
+      <Container type="main">
         <h3 className="portfolio__title">Портфолио</h3>
         <ul className="portfolio__items">
           <li className="portfolio__item">Статичный сайт

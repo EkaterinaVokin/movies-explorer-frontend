@@ -6,7 +6,7 @@ import  './AboutProject.css';
 export function AboutProject() {
   return(
     <section className="project">
-      <Container main={true}>
+      <Container type="main">
         <SectionTitle title="О проекте"/>
         <Line/>
         <div className="project__content">
