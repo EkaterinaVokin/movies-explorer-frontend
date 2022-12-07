@@ -8,7 +8,7 @@
   .container {
     max-width: 768px;
   }
-  .container_main {
+  .container_type_main {
     padding: 0 50px;
   }
 }
@@ -18,7 +18,10 @@
     max-width: 320px;
     padding: 0 14px;
   }
-  .container_main {
+  .container_type_main {
     padding: 0 18px;
+  }
+  .container_type_movie {
+    padding: 0 10px;
   } 
 }
