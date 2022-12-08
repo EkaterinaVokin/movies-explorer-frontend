@@ -1,11 +1,12 @@
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
+import { Container } from '../Container/Container.js';
 import '../AuthForm/AuthForm.css';
 
 export function Login() {
   return(
     <section className="form">
-      <div className="form__container">
+      <Container type="form">
         <div className="form__content">
           <Link to="/" className="form__link-header">
             <img className="form__logo" src={logo} alt="Логотип"/>
@@ -45,7 +46,7 @@ export function Login() {
             <Link to="/signup" className="form__link-footer">Регистрация</Link>
           </p>
         </div>
-      </div>  
+      </Container>  
     </section>
   )
 }
