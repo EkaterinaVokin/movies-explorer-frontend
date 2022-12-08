@@ -1,0 +1,37 @@
+.card-button {
+  background-color: #F9F9F9;
+  color: black;
+  border: none;
+  padding: 9px 15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 0.91;
+  border-radius: 30px;
+  margin: 18px auto;
+  transition: opacity 0.3s ease-in-out, background-color 0.4s ease-in-out;
+  opacity:1;
+  display: block;
+  width: 100px;
+  height: 29px;
+}
+
+.card-button path {
+  fill: currentColor;
+}
+
+.card-button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.card-button_colored {
+  background-color: #FF4062;
+  color: #FFF;
+}
+
+@media (max-width: 992px) {
+  .card-button{
+    margin: 14px auto;
+  }
+}
+

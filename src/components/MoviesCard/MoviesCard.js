@@ -1,16 +1,36 @@
 import React, { useState } from 'react';
+import { CardButton } from '../CardButton/CardButton';
+import { ReactComponent as IconCheck } from '../../images/icon_check.svg';
+import { ReactComponent as IconRemove } from '../../images/icon_remove.svg';
 import './MoviesCard.css';
 
 export function MoviesCard(props) {
 
-  const { movie } = props;
+  const { movie, removable } = props;
 
   const [isLiked, setIsLiked] = useState(false);
 
-  const buttonText = isLiked ? '' : 'Сохранить'
-
   function handleLikeClick() {
     setIsLiked(!isLiked)
+  }
+
+  function getButton() {
+    if(removable) {
+      return (
+        <CardButton>
+          <IconRemove />
+        </CardButton>
+      )
+    }
+    else if(isLiked) {
+      return (
+        <CardButton colored={true} onClick={handleLikeClick}>
+          <IconCheck />
+        </CardButton>
+      )
+    } else {
+      return <CardButton onClick={handleLikeClick}>Сохранить</CardButton>
+    }
   }
 
   return (
@@ -20,7 +40,7 @@ export function MoviesCard(props) {
         <span className="article__time">{movie.time}</span>
       </div>
       <img className="article__image" src={movie.image} alt={movie.title}/>
-      <button className={`article__button ${isLiked ? 'article__button_active' : ''}`} onClick={handleLikeClick} type="button">{buttonText}</button>
+      {getButton()}
     </article>
   )
 }
