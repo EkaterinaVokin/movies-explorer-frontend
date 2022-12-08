@@ -3,6 +3,10 @@
   padding-bottom: 80px;
 }
 
+.movies_type_padding {
+  padding-bottom: 220px;
+}
+
 .movies__items {
   padding: 0;
   padding-bottom: 10px;
@@ -42,6 +46,9 @@
 }
 
 @media (max-width: 992px) {
+  .movies_type_padding {
+    padding-bottom: 140px;
+  }
   .movies__items {
     grid-template-columns: 1fr 1fr;
     row-gap: 24px;

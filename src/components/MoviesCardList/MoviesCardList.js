@@ -19,7 +19,7 @@ export function MoviesCardList(props) {
   ]
 
   return(
-    <section className="movies">
+    <section className={`movies ${pathname !== '/saved-movies' ? '' : 'movies_type_padding'}`}>
       <Container type="movie">
         {list.length > 0 ? 
         (<ul className="movies__items">
@@ -38,5 +38,4 @@ export function MoviesCardList(props) {
       </Container>
     </section>
   )
-
 }
