@@ -3,7 +3,7 @@ import { Container } from '../Container/Container.js';
 import { Line } from '../Line/Line.js';
 import './Profile.css';
 
-export function Profile() {
+export function Profile({onClick}) {
 
   const [isValid ,setIsValid] = useState(false) // временно
 
@@ -33,18 +33,18 @@ export function Profile() {
               </div>
               <div className="profile__buttons">
                 {isValid ? 
-                    (<button className="profile__button profile__button_type_save" type="submit">
-                      Сохранить
-                    </button>)
+                  (<button className="profile__button profile__button_type_save" type="submit">
+                    Сохранить
+                  </button>)
                     :
-                    (<>
-                    <button className="profile__button profile__button_type_edit" type="submit">
-                      Редактировать
-                    </button>
-                    <button className="profile__button profile__button_type_exit" type="button">
-                      Выйти из аккаунта
-                    </button>
-                    </>)
+                  (<>
+                  <button className="profile__button profile__button_type_edit" type="submit">
+                    Редактировать
+                  </button>
+                  <button className="profile__button profile__button_type_exit" type="button" onClick={onClick}>
+                    Выйти из аккаунта
+                  </button>
+                  </>)
                 }
               </div>
             </form>
