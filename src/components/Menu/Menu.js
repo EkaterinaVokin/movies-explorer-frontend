@@ -12,7 +12,7 @@ export function Menu(props) {
           <img  className="menu__button-image" src={closeButton} alt="кнопка закрыть"/>
         </button>
         <div className="menu__navigation">
-          <Navigation />
+          <Navigation onClose={onClose}/>
         </div>  
       </div>
     </section>

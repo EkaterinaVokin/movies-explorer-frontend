@@ -33,7 +33,7 @@
   display: none;
 }
 
-.navigation__item-link-active {
+.navigation__item-link_active {
   font-weight: 500;
 }
 
@@ -88,10 +88,10 @@
   .navigation__item-link_hidden {
     display: block;
   }
-  .navigation__item-link-active {
+  .navigation__item-link_active {
     position: relative;
   }
-  .navigation__item-link-active::after {
+  .navigation__item-link_active::after {
     position: absolute;
     top: 100%;
     content: '';
