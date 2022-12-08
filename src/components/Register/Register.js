@@ -1,12 +1,13 @@
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
+import { Container } from '../Container/Container.js';
 import '../AuthForm/AuthForm.css';
 
 
 export function Register() {
   return(
     <section className="form">
-      <div className="form__container">
+      <Container type="form">
         <div className="form__content">
           <Link to="/" className="form__link-header">
             <img className="form__logo" src={logo} alt="Логотип"/>
@@ -58,7 +59,7 @@ export function Register() {
             <Link to="/signin" className="form__link-footer">Войти</Link>
           </p>
         </div>
-      </div>  
+      </Container>  
     </section>
   )
 }
