@@ -5,6 +5,13 @@ import '../AuthForm/AuthForm.css';
 
 
 export function Register() {
+
+  
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return(
     <section className="form">
       <Container type="form">
@@ -13,13 +20,14 @@ export function Register() {
             <img className="form__logo" src={logo} alt="Логотип"/>
           </Link>
           <h2 className="form__title">Добро пожаловать!</h2>
-          <form className="form__auth form__auth_register" name="form-registration" action="#">
+          <form className="form__auth form__auth_register" name="form-registration" action="#" onSubmit={handleSubmit}>
             <div className="form__block">
               <label>
                 <p className="form__label">Имя</p>
                 <input
                   className="form__input"
                   name="name"
+                  minLength="2"
                   placeholder="Имя"
                   required
                 />
@@ -34,6 +42,8 @@ export function Register() {
                   name="email"
                   type="email"
                   placeholder="Email"
+                  minLength="4"
+                  maxLength="40"
                   required
                 />
                 <span className='form__error'></span>
@@ -47,6 +57,7 @@ export function Register() {
                   name="password"
                   type="password"
                   minLength="8"
+                  maxLength="40"
                   placeholder="Пароль"
                   required
                 />

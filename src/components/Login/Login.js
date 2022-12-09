@@ -4,6 +4,11 @@ import { Container } from '../Container/Container.js';
 import '../AuthForm/AuthForm.css';
 
 export function Login() {
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return(
     <section className="form">
       <Container type="form">
@@ -12,7 +17,7 @@ export function Login() {
             <img className="form__logo" src={logo} alt="Логотип"/>
           </Link>
           <h2 className="form__title">Рады видеть!</h2>
-          <form className="form__auth form__auth_login" name="form-login" action="#">
+          <form className="form__auth form__auth_login" name="form-login" action="#" onSubmit={handleSubmit}>
             <div className="form__block">
               <label>
                 <p className="form__label">E-mail</p>
@@ -20,6 +25,8 @@ export function Login() {
                   className="form__input"
                   name="email"
                   type="email"
+                  minLength="4"
+                  maxLength="40"
                   placeholder="Email"
                   required
                 />
@@ -34,6 +41,7 @@ export function Login() {
                   name="password"
                   type="password"
                   minLength="8"
+                  maxLength="40"
                   placeholder="Пароль"
                   required
                 />
