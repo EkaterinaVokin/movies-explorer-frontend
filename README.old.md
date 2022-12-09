@@ -59,3 +59,5 @@ npm run start
 * ['Frontend'](https://movies.project.nomoredomains.club) or      ['Frontend'](http://movies.project.nomoredomains.club)
 * ['Backend'](https://api.movies.project.nomoredomains.club)
 
+['МАКЕТ ФИГМА'](https://disk.yandex.ru/d/r9mr4M6KlS4lTg)
+
