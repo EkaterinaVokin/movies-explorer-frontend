@@ -4,6 +4,7 @@
   border-radius: 6px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .article__description {
@@ -20,6 +21,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  /* width: 240px; */
 }
 
 .article__time {
