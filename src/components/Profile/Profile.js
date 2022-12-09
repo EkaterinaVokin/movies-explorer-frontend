@@ -44,7 +44,7 @@ const [isValid,setIsValid] = useState(); // временно
                 {isValid ? 
                   (<>
                   <span className="profile__error"></span>
-                  <button className="profile__button profile__button_type_save profile__button_disabled" type="submit">
+                  <button className="profile__button profile__button_type_save" type="submit">
                     Сохранить
                   </button>
                   </>)
