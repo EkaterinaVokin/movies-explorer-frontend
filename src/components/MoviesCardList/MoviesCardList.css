@@ -13,9 +13,8 @@
   margin: 0;
   list-style: none;
   display: grid;
-  row-gap: 28px;
-  column-gap: 32px;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  grid-template-columns: repeat(3, calc(calc(100% - 64px) / 3));
 }
 
 .movies__text {
@@ -50,9 +49,9 @@
     padding-bottom: 140px;
   }
   .movies__items {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 24px;
-    column-gap: 35px;
+    grid-template-columns: repeat(2, calc(calc(100% - 24px) / 2));
+    row-gap: 35px;
+    column-gap: 24px;
     padding-bottom: 30px;
   }
 }
@@ -62,7 +61,7 @@
     padding-top: 40px;
   }
   .movies__items {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     row-gap: 16px;
   }
   .movies__text {
