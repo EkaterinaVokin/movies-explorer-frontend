@@ -8,7 +8,7 @@ export function Navigation({onClose}) {
     <nav className="navigation">
       <ul className="navigation__items">
         <li className="navigation__item">
-          <NavLink className="navigation__item-link navigation__item-link_hidden" to="/" onClick={onClose}>Главная</NavLink>
+          <NavLink exact className="navigation__item-link navigation__item-link_hidden" to="/" activeClassName="navigation__item-link_active" onClick={onClose}>Главная</NavLink>
         </li>
         <li className="navigation__item">
           <NavLink className="navigation__item-link" activeClassName="navigation__item-link_active" to="/movies" onClick={onClose}>Фильмы</NavLink>
