@@ -1,0 +1,130 @@
+.project {
+  margin-top: 110px;
+  margin-bottom: 110px;
+}
+
+.project__content {
+  display: flex;
+  padding-top: 70px;
+}
+
+.project__content-column:not(:last-child) {
+  margin-right: 40px;
+}
+
+.project__content-title {
+  font-size: 20px;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  margin: 0;
+  margin-bottom: 26px;
+  font-weight: 400;
+  flex-basis: 50%;
+}
+
+.project__content-text {
+  font-size: 14px;
+  line-height: 1.42;
+  margin: 0;
+  font-weight: 400;
+  flex-basis: 50%;
+}
+
+.project__table {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 36px auto;
+  padding-top: 110px;
+  row-gap: 14px;
+}
+
+.project__table-block {
+  line-height: 1.21;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.project__table-block_color_white {
+  color: #fff;
+}
+
+.project__table-block_color_black {
+  color: #000;
+}
+
+.project__table-block_bck_black {
+  background-color: #000;
+}
+
+.project__table-block_bck_white {
+  background-color: #F2F2F2;
+}
+
+.project__table-text {
+  font-weight: 500;
+  color: #A0A0A0;
+  font-size: 14px;
+  line-height: 1.21;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .project {
+    margin-top: 90px;
+    margin-bottom: 90px;
+  }
+  .project__content-column:not(:last-child) {
+    margin-right: 30px;
+  }
+  .project__content-title {
+    margin-bottom: 22px;
+  }
+  .project__content-text {
+    font-size: 12px;
+  }
+  .project__table {
+    padding-top: 93px;
+  }
+}
+
+@media (max-width: 576px){
+  .project {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    /* padding-right: 4px;
+    padding-left: 4px; */
+  }
+  .project__content {
+    padding-top: 60px;
+    flex-direction: column;
+    column-gap: 0px;
+  }
+  .project__content-column:not(:last-child) {
+    margin-bottom: 56px;
+    margin-right: 0;
+  }
+  .project__content-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .project__content-text {
+    font-size: 11px;
+  }
+  .project__table {
+    padding-top: 60px;
+    row-gap: 10px;
+    grid-template-columns: 35% 65%;
+  }
+  .project__table-block {
+    font-size: 11px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+  .project__table-text {
+    font-size: 11px;
+  }
+}

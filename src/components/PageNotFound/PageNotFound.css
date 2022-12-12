@@ -1,0 +1,56 @@
+.not-found {
+  margin: 246px auto 60px auto;
+}
+
+.not-found__header {
+  font-weight: 400;
+  line-height: 1.21;
+  color: #000;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 184px;
+}
+
+.not-found__span {
+  color: #000;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 1.21;
+  text-align: center;
+  display: block;
+  margin-bottom: 44px;
+}
+
+.not-found__button {
+  font-size: 14px;
+  color: #000;
+  display: block;
+  text-align: center;
+  opacity: 1;
+  font-weight: 400;
+  line-height: 1.21;
+  text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
+  margin: 0 auto;
+}
+
+.not-found__button:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 576px) {
+  .not-found {
+    margin: 329px auto 30px auto;
+  }
+  .not-found__header {
+    font-size: 12px;
+    margin-bottom: 284px;
+  }
+  .not-found__span {
+    font-size: 80px;
+    margin-bottom: 29px;
+  }
+  .not-found__button {
+    font-size: 12px;
+  }
+}
