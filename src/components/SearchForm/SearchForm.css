@@ -23,6 +23,7 @@
 
 .search__input:focus {
   outline: none;
+  border: 1px solid #000;
 }
 
 .search__input::placeholder {
