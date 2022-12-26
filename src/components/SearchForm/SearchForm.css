@@ -47,6 +47,21 @@
   display: block;
 }
 
+.search__error {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.21;
+  color: #FF4062;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  visibility: visible;
+}
+
+.search__error_hidden {
+  visibility: hidden;
+}
+
 .search__checkbox {
   margin-top: 28px;
   margin-bottom: 39px;

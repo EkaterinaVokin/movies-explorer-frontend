@@ -1,28 +1,97 @@
+import React, { useEffect, useState } from 'react';
 import { Container } from '../Container/Container.js';
 import { Line } from '../Line/Line.js';
 import searchButton from '../../images/search.svg';
 import './SearchForm.css';
 
-export function SearchForm() {
+export function SearchForm(props) {
+  
+  const { name, onSearch, onFilter } = props;
+
+  const [error, setError] = useState(''); // вывод ошибки
+
+  const [values, setValues] = useState(JSON.parse(localStorage.getItem(name)) || {
+    search: '',
+    shorts: false,
+  }); // ввод значения в инпуте
+ 
+  function saveValues(values) {
+    localStorage.setItem(name, JSON.stringify(values))
+  }
+
+  function handleShortsChange(event) {
+    const newValues = {
+      ...values,
+      shorts: event.target.checked,
+    }
+    setValues(newValues)
+    onFilter(newValues)
+    saveValues(newValues)
+  }
+
+  function handleSearchChange(event) {
+    setError('') // очищаем поле от ошибок
+    setValues({
+      ...values,
+      search: event.target.value,
+    })
+  }
+
+  function search() {
+    onSearch(values)
+      .then(() => {
+        saveValues(values)
+      })
+      .catch((exception) => {
+        setError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
+        return Promise.reject(exception);
+      })
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (values.search.trim() === '') {
+      setError('Нужно ввести ключевое слово')
+      return
+    }
+
+    search()
+  }
+
+  useEffect(() => {
+    if (values.search.trim() === '') return;
+    search()
+  }, []);
+
   return(
     <section className="search">
       <Container type="main">
-        <form className="search__form" name="form-search">
+        <form className="search__form" name={name} onSubmit={handleSubmit} noValidate>
           <div className="search__row">
             <input 
               className="search__input" 
               placeholder="Фильм"
               type="text"
+              name="search"
+              value={values.search}
               required
+              onChange={handleSearchChange}
             />
             <button className="search__button" type="submit">
               <img className="search__button-image" src={searchButton} alt="кнопка поиска"/>
             </button>
           </div>
+          <span className={error ? "search__error" : "search__error_hidden"}>{error}</span>
           <div className="search__checkbox">
             <p className="search__checkbox-text">Короткометражки</p>
             <label className="search__checkbox-switch">
-              <input className="search__checkbox-input" type="checkbox" />
+              <input 
+                className="search__checkbox-input" 
+                type="checkbox" 
+                name="shorts"
+                checked={values.shorts}
+                onChange={handleShortsChange}
+                />
               <span className="search__checkbox-slider"></span>
             </label>
           </div>
