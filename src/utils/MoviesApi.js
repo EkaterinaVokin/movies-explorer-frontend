@@ -6,7 +6,6 @@ class MoviesApi {
   _request(url, options) {
     return fetch(url, {
       ...options,
-      credentials: 'include',
     }).then((res) => {
       return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
     });
