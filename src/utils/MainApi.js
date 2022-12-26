@@ -9,7 +9,20 @@ class Api {
       ...options,
       credentials: 'include',
     }).then((res) => {
-      return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+      return new Promise((resolve, reject) => {
+        res
+          .json()
+          .then((data) => {
+            if (res.ok) {
+              resolve(data);
+            } else {
+              reject({ data, status: res.status });
+            }
+          })
+          .catch((error) => {
+            reject({ error });
+          });
+      });
     });
   }
   getMe() {
@@ -27,9 +40,9 @@ class Api {
       }),
     });
   }
-  getMovies() {
+  getSaveMovies() {
     // возвращает все сохранённые текущим  пользователем фильмы
-    return this._request(`${this._url}/movies`,{ headers: this._headers })
+    return this._request(`${this._url}/movies`, { headers: this._headers });
   }
   addMovies(data) {
     // создать запрос добавить новый фильм
@@ -46,9 +59,9 @@ class Api {
       headers: this._headers,
     });
   }
-  register({name, email, password}) {
+  register({ name, email, password }) {
     // регистрация пользователя
-    return this._request(`${this._url}/signup`,{
+    return this._request(`${this._url}/signup`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
@@ -58,9 +71,9 @@ class Api {
       }),
     });
   }
-  authorize({email, password}) {
+  authorize({ email, password }) {
     // авторизация пользователя
-    return this._request(`${this._url}/signin`,{
+    return this._request(`${this._url}/signin`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
@@ -69,11 +82,11 @@ class Api {
       }),
     });
   }
-  logout () {
+  logout() {
     // выход пользователя
-    return this._request(`${this._url}/signout`,{ 
+    return this._request(`${this._url}/signout`, {
       method: 'POST',
-      headers: this._headers, 
+      headers: this._headers,
     });
   }
 }
@@ -85,4 +98,7 @@ const object = {
   },
 };
 
- export const api = new Api(object);
+export const api = new Api(object);
+
+
+// url 'http://localhost:4000'
