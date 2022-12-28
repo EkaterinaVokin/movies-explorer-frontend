@@ -237,6 +237,8 @@ function App() {
       name: '',
       email: '',
     });
+    setMovies([])
+    setSaveMovies([])
     localStorage.clear();
   }
 
