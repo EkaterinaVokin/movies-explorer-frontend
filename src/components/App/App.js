@@ -15,6 +15,7 @@ import { SavedMovies } from '../SavedMovies/SavedMovies.js';
 import { Profile } from '../Profile/Profile.js';
 import { api } from '../../utils/MainApi.js';
 import { moviesApi } from '../../utils/MoviesApi.js';
+import { MOBILE_RESOLUTION } from '../../utils/constant.js';
 import './App.css';
 
 function App() {
@@ -109,7 +110,7 @@ function App() {
   // фильтрация длительности фильма
   const filterMoviesByDuration = (movies) => {
     return movies.filter((item) => {
-      return item.duration <= 40
+      return item.duration <= MOBILE_RESOLUTION
     })
   }
 

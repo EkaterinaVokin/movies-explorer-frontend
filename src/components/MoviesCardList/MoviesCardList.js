@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MoviesCard } from '../MoviesCard/MoviesCard';
 import { Container } from '../Container/Container.js';
+import { 
+  MOBILE_RESOLUTION, 
+  TABLET_RESOLUTION, 
+  DESKTOP_COUNT,
+  TABLET_COUNT,
+  MOBILE_COUNT,
+  DESKTOP_MORE_COUNT,
+  TABLET_MORE_COUNT,
+  MOBILE_MORE_COUNT
+} from '../../utils/constant.js';
 import './MoviesCardList.css';
 
 
@@ -14,8 +24,8 @@ export function MoviesCardList(props) {
 
   const [hiddenMovies, setHiddenMovies] = useState([]) // скрытые фильмы
 
-  const [count, setCount] = useState(12);
-  const [moreCount, setMoreCount] = useState(3);
+  const [count, setCount] = useState(DESKTOP_COUNT);
+  const [moreCount, setMoreCount] = useState(DESKTOP_MORE_COUNT);
 
   useEffect(() => {
     onResize()
@@ -33,15 +43,15 @@ export function MoviesCardList(props) {
 
     timeout = setTimeout(() => {
       const width = window.innerWidth;
-      if(width > 992){
-        setCount(12)
-        setMoreCount(3)
-      } else if(width > 576) {
-        setCount(8)
-        setMoreCount(2)
+      if(width > TABLET_RESOLUTION){
+        setCount(DESKTOP_COUNT)
+        setMoreCount(DESKTOP_MORE_COUNT)
+      } else if(width > MOBILE_RESOLUTION) {
+        setCount(TABLET_COUNT)
+        setMoreCount(TABLET_MORE_COUNT)
       } else {
-        setCount(5)
-        setMoreCount(2)
+        setCount(MOBILE_COUNT)
+        setMoreCount(MOBILE_MORE_COUNT)
       }
     }, 100);
   }
