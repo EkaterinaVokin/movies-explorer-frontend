@@ -28,7 +28,10 @@ function App() {
 
   const history = useHistory();
 
-  const [stateIsLogin, setStateIsLogin] = useState({ isLoggedIn: false });
+  const [stateIsLogin, setStateIsLogin] = useState(
+    JSON.parse(localStorage.getItem('stateIsLogin')) ||
+    { isLoggedIn: false }
+  );
 
   const [movies, setMovies] = useState([]); // пер.состояния получить массив фильмов
 
@@ -208,6 +211,10 @@ function App() {
     checkToken();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('stateIsLogin', JSON.stringify(stateIsLogin));
+  }, [stateIsLogin]);
+
   // токен
   function checkToken() {
     return api
@@ -282,7 +289,7 @@ function App() {
           <Footer />
         </ProtectedRoute>
         <ProtectedRoute path="/saved-movies" isLoggedIn={stateIsLogin.isLoggedIn}>
-          <SavedMovies 
+          <SavedMovies
             onSearch={searcSaveMovies} 
             onFilter={filterSaveMovies}
             isLoading={isLoading} 
