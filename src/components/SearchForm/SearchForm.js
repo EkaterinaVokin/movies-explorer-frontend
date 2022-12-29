@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Container } from '../Container/Container.js';
 import { Line } from '../Line/Line.js';
 import searchButton from '../../images/search.svg';
 import './SearchForm.css';
 
 export function SearchForm(props) {
-  
-  const { name, onSearch, onFilter } = props;
+  const { name, onSearch, onFilter, defaultValues, isLoading } = props;
 
   const [error, setError] = useState(''); // вывод ошибки
 
-  const [values, setValues] = useState(JSON.parse(localStorage.getItem(name)) || {
-    search: '',
-    shorts: false,
-  }); // ввод значения в инпуте
- 
-  function saveValues(values) {
-    localStorage.setItem(name, JSON.stringify(values))
-  }
+  const [values, setValues] = useState(defaultValues); // ввод значения в инпуте
 
   function handleShortsChange(event) {
     const newValues = {
@@ -26,7 +18,6 @@ export function SearchForm(props) {
     }
     setValues(newValues)
     onFilter(newValues)
-    saveValues(newValues)
   }
 
   function handleSearchChange(event) {
@@ -38,10 +29,9 @@ export function SearchForm(props) {
   }
 
   function search() {
+    setError('')
+
     onSearch(values)
-      .then(() => {
-        saveValues(values)
-      })
       .catch((exception) => {
         setError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
         return Promise.reject(exception);
@@ -57,11 +47,6 @@ export function SearchForm(props) {
 
     search()
   }
-
-  useEffect(() => {
-    if (values.search.trim() === '') return;
-    search()
-  }, []);
 
   return(
     <section className="search">
