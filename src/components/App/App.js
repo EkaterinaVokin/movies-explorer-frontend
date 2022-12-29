@@ -15,7 +15,7 @@ import { SavedMovies } from '../SavedMovies/SavedMovies.js';
 import { Profile } from '../Profile/Profile.js';
 import { api } from '../../utils/MainApi.js';
 import { moviesApi } from '../../utils/MoviesApi.js';
-import { MOBILE_RESOLUTION } from '../../utils/constant.js';
+import { filterMoviesByDuration, filterMoviesByName } from '../../utils/filter.js';
 import './App.css';
 
 function App() {
@@ -59,27 +59,6 @@ function App() {
         })
     }
   }, [stateIsLogin.isLoggedIn]);
-  
-  // Поиск сохраненных фильмов
-  function searcSaveMovies(values) {
-    const newMovies = JSON.parse(localStorage.getItem('saveMovies')) || [];
-
-    let filteredSaveMovies = fiterMoviesByName(newMovies, values.search);
-    localStorage.setItem('filteredSaveMovies', JSON.stringify(filteredSaveMovies));
-    filterSaveMovies(values)
-   
-    return Promise.resolve();
-  }
-
-  function filterSaveMovies(values) {
-    const filteredSaveMovies = JSON.parse(localStorage.getItem('filteredSaveMovies')) || [];
-
-    const resultSaveMovies = values.shorts
-      ? filterMoviesByDuration(filteredSaveMovies)
-      : filteredSaveMovies;
-
-    setSaveMovies(resultSaveMovies)
-  }
 
   function filterMovies(values) {
     const filteredMovies = JSON.parse(localStorage.getItem('filteredMovies')) || [];
@@ -95,23 +74,9 @@ function App() {
   function updateMovies (values) {
     const movies = JSON.parse(localStorage.getItem('allMovies'));
    
-    let filteredMovies = fiterMoviesByName(movies, values.search);
+    let filteredMovies = filterMoviesByName(movies, values.search);
     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
     filterMovies(values)
-  }
-
-  // отфильтрованы фильмы
-  const fiterMoviesByName = (movies, name) => {
-    return movies.filter((item) => {
-      return item.nameRU.toLowerCase().includes(name.toLowerCase())
-    })
-  }
-
-  // фильтрация длительности фильма
-  const filterMoviesByDuration = (movies) => {
-    return movies.filter((item) => {
-      return item.duration <= MOBILE_RESOLUTION
-    })
   }
 
   // получить все фильмы
@@ -146,7 +111,6 @@ function App() {
       })
       .then((newMovie) => {
         setSaveMovies([newMovie, ...saveMovies])
-        localStorage.setItem('saveMovies', JSON.stringify([newMovie, ...saveMovies]))
       })
       .catch((exception) => {
         return Promise.reject(exception);
@@ -291,8 +255,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/saved-movies" isLoggedIn={stateIsLogin.isLoggedIn}>
           <SavedMovies
-            onSearch={searcSaveMovies} 
-            onFilter={filterSaveMovies}
             isLoading={isLoading} 
             onDeleteMovie={deleteMovie}
           />
