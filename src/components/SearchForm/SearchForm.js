@@ -77,7 +77,7 @@ export function SearchForm(props) {
               required
               onChange={handleSearchChange}
             />
-            <button className="search__button" type="submit">
+            <button className="search__button" type="submit" disabled={isLoading}>
               <img className="search__button-image" src={searchButton} alt="кнопка поиска"/>
             </button>
           </div>
