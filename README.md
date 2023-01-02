@@ -61,3 +61,5 @@ npm run start
 
 ['МАКЕТ ФИГМА'](https://disk.yandex.ru/d/gW52llmURsHwMQ)
 
+Ссылка на пул реквест https://github.com/EkaterinaVokin/movies-explorer-frontend/pull/10
+
